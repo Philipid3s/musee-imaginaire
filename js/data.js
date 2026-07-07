@@ -36,7 +36,7 @@ const ARTISTS = [
     links: [
       { label: "Site officiel", url: "https://karlkopinski.com/" },
       { label: "À propos de Karl", url: "https://karlkopinski.com/about-karl/" },
-      { label: "Magic: The Gathering — fiche artiste", url: "https://gatherer.wizards.com/Pages/Search/Default.aspx?artist=%5B%22Karl+Kopinski%22%5D" },
+      { label: "Magic: The Gathering — fiche artiste", url: "https://gatherer.wizards.com/search?artistName=eq~Karl_Kopinski" },
       { label: "Lexicanum (FR)", url: "https://wh40k-fr.lexicanum.com/wiki/Karl_Kopinski" },
     ],
   },
@@ -53,7 +53,6 @@ const ARTISTS = [
       { label: "Wikipédia (EN)", url: "https://en.wikipedia.org/wiki/Adrian_Smith_(illustrator)" },
       { label: "ArtStation", url: "https://adrian-smith.artstation.com/" },
       { label: "Lexicanum", url: "https://wh40k.lexicanum.com/wiki/Adrian_Smith" },
-      { label: "40K Gallery", url: "https://40k.gallery/artist/adrian-smith/" },
     ],
   },
   {
@@ -68,7 +67,6 @@ const ARTISTS = [
     links: [
       { label: "Site officiel", url: "https://www.davidgallagherart.co.uk/" },
       { label: "Lexicanum", url: "https://wh40k.lexicanum.com/wiki/Dave_Gallagher" },
-      { label: "40K Gallery", url: "https://40k.gallery/artist/david-gallagher/" },
       { label: "Warhammer Art", url: "https://www.warhammerart.com/collections/dave-gallagher-artwork" },
     ],
   },
