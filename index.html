@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Musée Imaginaire</title>
+<meta name="description" content="Une galerie personnelle d'artistes du grimdark, du concept art, du pixel art et de l'illustration de jeux vidéo.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <h1>Mon Musée Imaginaire</h1>
+    <p class="tagline">Une galerie personnelle dédiée aux artistes qui façonnent mon imaginaire — du grimdark de Warhammer aux mondes de science-fiction, du pixel art aux décors de jeux vidéo.</p>
+  </div>
+</header>
+
+<nav class="filters" aria-label="Filtrer par catégorie">
+  <div class="filters-inner">
+    <input type="search" id="search" class="search-input" placeholder="Rechercher un artiste…" aria-label="Rechercher un artiste">
+    <div class="filter-buttons" id="filterButtons"></div>
+  </div>
+</nav>
+
+<main>
+  <section id="gallery" class="gallery" aria-live="polite"></section>
+  <p id="emptyState" class="empty-state" hidden>Aucun artiste ne correspond à ta recherche.</p>
+</main>
+
+<footer class="site-footer">
+  <p>Musée imaginaire, curation personnelle — <span id="artistCount"></span> artistes recensés.</p>
+</footer>
+
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
+    <span class="modal-category" id="modalCategory"></span>
+    <h2 id="modalName"></h2>
+    <p class="modal-bio" id="modalBio"></p>
+
+    <div class="modal-section" id="worksSection">
+      <h3>Œuvres représentatives</h3>
+      <ul class="works-list" id="modalWorks"></ul>
+    </div>
+
+    <div class="modal-section" id="linksSection">
+      <h3>Liens utiles</h3>
+      <ul class="links-list" id="modalLinks"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
