@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon Musée Imaginaire</title>
 <meta name="description" content="Une galerie personnelle d'artistes du grimdark, du concept art, du pixel art et de l'illustration de jeux vidéo.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mon Musée Imaginaire">
+<meta property="og:description" content="Une galerie personnelle dédiée aux artistes du grimdark, du concept art SF, du pixel art et de l'illustration de jeux vidéo — 33 artistes, leurs œuvres et leurs liens de référence.">
+<meta property="og:url" content="https://philipid3s.github.io/musee-imaginaire/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mon Musée Imaginaire">
+<meta name="twitter:description" content="Une galerie personnelle dédiée aux artistes du grimdark, du concept art SF, du pixel art et de l'illustration de jeux vidéo.">
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,6 +26,7 @@
 <header class="site-header">
   <div class="header-inner">
     <h1>Mon Musée Imaginaire</h1>
+    <div class="fleuron" aria-hidden="true">─────&nbsp;&nbsp;❦&nbsp;&nbsp;─────</div>
     <p class="tagline">Une galerie personnelle dédiée aux artistes qui façonnent mon imaginaire — du grimdark de Warhammer aux mondes de science-fiction, du pixel art aux décors de jeux vidéo.</p>
   </div>
 </header>
@@ -25,11 +39,12 @@
 </nav>
 
 <main>
-  <section id="gallery" class="gallery" aria-live="polite"></section>
+  <div id="gallery" aria-live="polite"></div>
   <p id="emptyState" class="empty-state" hidden>Aucun artiste ne correspond à ta recherche.</p>
 </main>
 
 <footer class="site-footer">
+  <div class="fleuron" aria-hidden="true">❦</div>
   <p>Musée imaginaire, curation personnelle — <span id="artistCount"></span> artistes recensés.</p>
 </footer>
 
@@ -38,6 +53,7 @@
     <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
     <span class="modal-category" id="modalCategory"></span>
     <h2 id="modalName"></h2>
+    <blockquote class="modal-note" id="modalNote" hidden></blockquote>
     <p class="modal-bio" id="modalBio"></p>
 
     <div class="modal-section" id="worksSection">

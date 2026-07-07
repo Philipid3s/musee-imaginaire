@@ -1,9 +1,9 @@
 const CATEGORIES = [
-  { key: "grimdark", label: "Grimdark / Dark Fantasy" },
-  { key: "concept", label: "Concept Art / Film" },
-  { key: "pixel", label: "Pixel / Voxel Art" },
-  { key: "3d", label: "3D / Animation" },
-  { key: "game", label: "Game Art / Illustration" },
+  { key: "grimdark", label: "Grimdark / Dark Fantasy", numeral: "I" },
+  { key: "concept", label: "Concept Art / Film", numeral: "II" },
+  { key: "pixel", label: "Pixel / Voxel Art", numeral: "III" },
+  { key: "3d", label: "3D / Animation", numeral: "IV" },
+  { key: "game", label: "Game Art / Illustration", numeral: "V" },
 ];
 
 const ARTISTS = [
@@ -11,6 +11,7 @@ const ARTISTS = [
   {
     name: "John Blanche",
     category: "grimdark",
+    note: "Père du grimdark. Style « Blanchitsu » : encres, textures organiques, gothique délabré — il a défini l'identité visuelle de Warhammer & 40K.",
     bio: "Illustrateur et sculpteur britannique (1948–2026), John Blanche a rejoint Games Workshop en 1977 et en est devenu le directeur artistique historique, façonnant l'identité visuelle de Warhammer Fantasy Battle, Warhammer 40 000 et Age of Sigmar sur plus de quatre décennies. Son style gothique, sombre et punk a donné naissance au mouvement « Blanchitsu », une approche de peinture de figurines à la palette limitée et à l'esthétique délabrée qui influence toujours la communauté aujourd'hui.",
     works: [
       { title: "Realm of Chaos (illustrations et couvertures)", year: "1988" },
@@ -27,6 +28,7 @@ const ARTISTS = [
   {
     name: "Karl Kopinski",
     category: "grimdark",
+    note: "Peintre traditionnel à l'huile, ex-Games Workshop — couvertures Warhammer/40K, Magic: The Gathering, portraits.",
     bio: "Illustrateur britannique né en 1971 à Nottingham, largement autodidacte. Reconnu pour sa peinture traditionnelle (huile, aquarelle) et ses portraits expressifs, il a produit des couvertures et illustrations pour Games Workshop (Warhammer/40K), ainsi que de nombreuses cartes pour Magic: The Gathering et des travaux pour Ubisoft, Hasbro et Wizards of the Coast.",
     works: [
       { title: "Illustrations et couvertures Warhammer 40 000", year: "2000s" },
@@ -43,6 +45,7 @@ const ARTISTS = [
   {
     name: "Adrian Smith",
     category: "grimdark",
+    note: "GW classique (Chaos, Inferno!) — ligne dure, noir et blanc puissant, dark fantasy brutale.",
     bio: "Illustrateur britannique, l'un des artistes emblématiques de Games Workshop dès la fin des années 1980, connu avec Ian Miller pour avoir façonné l'atmosphère sombre des débuts de Warhammer et 40K. Son style en ligne dure et son noir et blanc puissant ont marqué des publications comme Realm of Chaos: The Lost and the Damned (1990) et le magazine Inferno!. Il a aussi illustré pour Magic: The Gathering et travaillé comme concept artist pour EA Mythic et Ubisoft.",
     works: [
       { title: "Realm of Chaos: The Lost and the Damned", year: "1990" },
@@ -58,6 +61,7 @@ const ARTISTS = [
   {
     name: "Dave Gallagher",
     category: "grimdark",
+    note: "Couvertures de codex et Black Library — scènes de bataille épiques 40K.",
     bio: "Illustrateur écossais formé au Dundee College of Art, actif comme illustrateur commercial depuis plus de quarante ans. Collaborateur prolifique de Games Workshop et de la Black Library, il a peint de nombreuses couvertures de codex et scènes de bataille épiques pour l'univers Warhammer 40 000, un travail compilé dans « The Face of Battle: The Colour Art of David Gallagher » (2001).",
     works: [
       { title: "The Face of Battle: The Colour Art of David Gallagher", year: "2001" },
@@ -73,6 +77,7 @@ const ARTISTS = [
   {
     name: "Frank Frazetta",
     category: "grimdark",
+    note: "Le grand ancêtre — père de la fantasy art moderne. Influence directe sur tout le grimdark.",
     bio: "Artiste américain (1928–2010), surnommé le « parrain de la fantasy art », pionnier de l'illustration fantastique moderne à l'huile. Ses couvertures pour Conan le Barbare et son tableau iconique « Death Dealer » (1973) ont redéfini le genre sword and sorcery et influencé des générations d'artistes, avec un usage caractéristique du clair-obscur et du dynamisme.",
     works: [
       { title: "Death Dealer I", year: "1973" },
@@ -88,6 +93,7 @@ const ARTISTS = [
   {
     name: "Ian Miller",
     category: "grimdark",
+    note: "Vieille garde GW aux côtés de Blanche — encre nerveuse, gothique cauchemardesque, architectures torturées.",
     bio: "Illustrateur et écrivain britannique né en 1946, connu pour son style gothique à l'encre nerveuse et sa sensibilité macabre. Il a illustré des couvertures pour H. P. Lovecraft, les livres-jeux Fighting Fantasy, et de nombreuses publications de jeux de rôle et de figurines pour Games Workshop dans les années 1980. Il a coécrit avec John Blanche l'anthologie « Ratspike » (1989) et a contribué aux films de Ralph Bakshi « Wizards » et « Cool World ».",
     works: [
       { title: "Ratspike (avec John Blanche)", year: "1989" },
@@ -103,6 +109,7 @@ const ARTISTS = [
   {
     name: "Zdzisław Beksiński",
     category: "grimdark",
+    note: "Surréaliste dystopique polonais — ancêtre profond de l'esthétique 40K, avec Giger.",
     bio: "Peintre, photographe et sculpteur polonais (1929–2005), autodidacte en peinture après des études d'architecture à Cracovie. Ses œuvres à l'huile de la « période fantastique » dépeignent des paysages post-apocalyptiques et des architectures organiques en décomposition, dans un surréalisme dystopique. Il refusait de titrer ses œuvres, laissant les spectateurs libres d'interprétation.",
     works: [
       { title: "Sans titre (peintures de la période fantastique)", year: "1970s-1980s" },
@@ -119,6 +126,7 @@ const ARTISTS = [
   {
     name: "Syd Mead",
     category: "concept",
+    note: "« Visual futurist » — le grand ancêtre du concept art SF. Design industriel, gouache, futurisme lumineux.",
     bio: "Sydney Jay Mead (1933–2019) est un designer industriel et concept artist américain, surnommé le « visual futurist ». Diplômé de l'Art Center College of Design, il a d'abord travaillé pour Ford avant de révolutionner le cinéma de science-fiction avec ses gouaches lumineuses sur Blade Runner, Tron, Aliens et 2010.",
     works: [
       { title: "Blade Runner — Concept Art", year: "1982" },
@@ -134,6 +142,7 @@ const ARTISTS = [
   {
     name: "Ralph McQuarrie",
     category: "concept",
+    note: "L'homme qui a défini le visuel de la trilogie originale Star Wars — gouache, lumière douce, silhouettes iconiques.",
     bio: "Ralph McQuarrie (1929–2012) est un illustrateur et concept artist américain qui a défini l'identité visuelle de la trilogie originale Star Wars (Dark Vador, Chewbacca, Mos Eisley, l'Étoile Noire). Ses gouaches à la lumière douce ont aussi contribué à E.T., Battlestar Galactica et Cocoon (Oscar des meilleurs effets visuels en 1986).",
     works: [
       { title: "Star Wars — Concept Art (trilogie originale)", year: "1975-1977" },
@@ -149,6 +158,7 @@ const ARTISTS = [
   {
     name: "Moebius / Jean Giraud",
     category: "concept",
+    note: "L'école SF française — ligne claire, mondes oniriques. Alien, Tron, The Fifth Element.",
     bio: "Jean Giraud (1938–2012), dit Mœbius, est un dessinateur et scénariste français, figure majeure de la bande dessinée franco-belge et cofondateur du magazine Métal Hurlant (1975). Sous le pseudonyme Mœbius, il développe une ligne claire et des mondes oniriques qui influenceront le cinéma via Alien, Tron et Le Cinquième Élément.",
     works: [
       { title: "Arzach", year: "1975" },
@@ -163,6 +173,7 @@ const ARTISTS = [
   {
     name: "H.R. Giger",
     category: "concept",
+    note: "Horreur biomécanique — le pont entre concept art SF et grimdark.",
     bio: "Hans Ruedi Giger (1940–2014) est un artiste suisse, créateur du style « biomécanique » mêlant corps organiques et machines. Il obtient l'Oscar des meilleurs effets visuels en 1980 pour sa conception du Xénomorphe dans Alien, inspirée de sa peinture Necronom IV, faisant le pont entre concept art SF et esthétique grimdark.",
     works: [
       { title: "Necronom IV", year: "1976" },
@@ -177,6 +188,7 @@ const ARTISTS = [
   {
     name: "Sparth / Nicolas Bouvier",
     category: "concept",
+    note: "La continuation vivante du futurisme minimaliste de Mead.",
     bio: "Nicolas Bouvier, dit Sparth, est un concept artist français installé à Seattle. Directeur artistique senior chez 343 Industries pendant 14 ans, il a façonné l'identité visuelle de la saga Halo après avoir travaillé sur Prince of Persia: Warrior Within et Assassin's Creed, dans la continuité d'un futurisme minimaliste hérité de Syd Mead.",
     works: [
       { title: "Halo 4 — Concept Art", year: "2012" },
@@ -192,6 +204,7 @@ const ARTISTS = [
   {
     name: "Simon Stålenhag",
     category: "concept",
+    note: "Wacom + digital, rendu façon peinture à l'huile — la campagne suédoise hantée de machines.",
     bio: "Simon Stålenhag (né en 1984 à Stockholm) est un artiste, musicien et designer suédois spécialisé dans la science-fiction rétro-futuriste, réalisée au Wacom avec un rendu proche de la peinture à l'huile. Ses paysages nostalgiques de la campagne suédoise mêlés à des machines rétro-SF ont inspiré la série Tales from the Loop (Amazon, 2020) et le film The Electric State (Netflix, 2025).",
     works: [
       { title: "Tales from the Loop", year: "2014" },
@@ -207,6 +220,7 @@ const ARTISTS = [
   {
     name: "Jakub Różalski",
     category: "concept",
+    note: "Paysages pastoraux + mechs — la formule Stålenhag, version slave.",
     bio: "Peintre et illustrateur polonais né en 1981 à Koszalin, connu sous le pseudonyme « Mr. Werewolf ». Il est le créateur de l'univers 1920+, une uchronie mêlant paysages pastoraux slaves et machines de guerre (mechs), qui a servi de base au jeu de plateau Scythe (2016) puis au jeu vidéo Iron Harvest (2020).",
     works: [
       { title: "1920+ (univers)", year: "2013-présent" },
@@ -222,6 +236,7 @@ const ARTISTS = [
   {
     name: "Jon McCoy",
     category: "concept",
+    note: "Blade Runner 2049, Star Wars: Rogue One — environnements et keyframes pour le cinéma.",
     bio: "Concept artist britannique basé à Londres, spécialisé dans les environnements et keyframes pour le cinéma. Il a collaboré avec le chef décorateur Dennis Gassner sur Blade Runner 2049 (2017) et a également contribué à Star Wars: Rogue One (2016), ainsi qu'à Doctor Strange.",
     works: [
       { title: "Blade Runner 2049", year: "2017" },
@@ -237,6 +252,7 @@ const ARTISTS = [
   {
     name: "Wayne Haag",
     category: "concept",
+    note: "Oil paintings — The Fifth Element, LOTR, Alien: Covenant, Foundation.",
     bio: "Artiste et illustrateur australien (basé à Sydney), matte painter et concept artist depuis la fin des années 1990. Il a débuté sur Le Cinquième Élément (1997) chez Digital Domain, puis a travaillé chez Weta Digital sur Le Seigneur des Anneaux, avant de devenir concept artist sur Alien: Covenant (2017) et la série Foundation. Il est aussi peintre à l'huile de scènes de science-fiction.",
     works: [
       { title: "Le Cinquième Élément", year: "1997" },
@@ -252,6 +268,7 @@ const ARTISTS = [
   {
     name: "Paul Reid",
     category: "concept",
+    note: "Gods and monsters — la mythologie classique à l'huile.",
     bio: "Peintre figuratif écossais né en 1975 à Scone, Perth. Diplômé avec mention du Duncan of Jordanstone College of Art de Dundee, il réinterprète en peinture à l'huile les mythologies grecque, celtique et nordique — dieux, héros et monstres — dans un style influencé par les maîtres anciens comme Rembrandt et Caravage.",
     works: [
       { title: "Theseus and the Minotaur", year: "2021" },
@@ -267,6 +284,7 @@ const ARTISTS = [
   {
     name: "Philipp Urlich",
     category: "concept",
+    note: "Environment artist — Games Workshop & Creative Assembly (!!)",
     bio: "Artiste visuel suisse (basé à Schaffhouse), spécialisé dans les paysages fantastiques et l'art d'environnement. Après des études d'art et de graphisme à Zurich, il a repris la peinture professionnelle en 2019 et travaille depuis en freelance pour des studios de jeux et des éditeurs, notamment Games Workshop / Black Library et Wizards of the Coast / Random House pour les couvertures de la trilogie Dragonlance.",
     works: [
       { title: "Dragonlance: Dragons of Deceit (couverture)", year: "2023" },
@@ -284,6 +302,7 @@ const ARTISTS = [
   {
     name: "Mark Ferrari",
     category: "pixel",
+    note: "La légende — LucasArts, color cycling, paysages pixel magistraux.",
     bio: "Mark J. Ferrari est une figure légendaire du pixel art, connu pour son travail chez Lucasfilm/LucasArts sur des jeux d'aventure cultes comme Loom et The Secret of Monkey Island. Il est surtout célèbre pour avoir inventé des approches uniques de « color cycling » (cyclage de palette), permettant d'animer pluie, vagues et lumière dans une image fixe sans changer un seul pixel. Il est revenu créer les décors de Thimbleweed Park et propose l'application Living Worlds.",
     works: [
       { title: "Loom", year: "1990" },
@@ -299,6 +318,7 @@ const ARTISTS = [
   {
     name: "Waneella",
     category: "pixel",
+    note: "Scènes cyberpunk Tokyo animées — le pendant naturel de Valenberg.",
     bio: "Waneella (Valeriya Sanchilo) est une artiste pixel art connue pour ses scènes urbaines nocturnes néon, souvent inspirées du Japon et de l'esthétique cyberpunk façon Blade Runner. Elle publie régulièrement des GIFs animés et a sorti plusieurs artbooks (Pixelscapes, Decade) ainsi qu'un jeu vidéo, Hull Rupture.",
     works: [
       { title: "Pixelscapes", year: "2021" },
@@ -314,6 +334,7 @@ const ARTISTS = [
   {
     name: "Gustavo Viselner",
     category: "pixel",
+    note: "Pixel art pop culture — les scènes cultes du cinéma et des séries, pixelisées.",
     bio: "Illustrateur et game artist né à Buenos Aires et basé à Tel Aviv, formé à la Bezalel Academy of Arts and Design et à la School of Visual Arts de New York. Sa spécialité est le pixel art pop culture : il crée des scènes pixelisées hommages à des séries télé cultes comme Seinfeld ou Stranger Things. Il est aussi Art Director et co-fondateur des studios Animetas et The Yearbook Club.",
     works: [
       { title: "Pixel Art hommage à Seinfeld", year: "2018" },
@@ -328,6 +349,7 @@ const ARTISTS = [
   {
     name: "Valenberg",
     category: "pixel",
+    note: "VirtuaVerse — ambiances cyberpunk animées.",
     bio: "Valenberg est un pixel artist allemand connu pour son travail sur VirtuaVerse, un jeu d'aventure point-and-click cyberpunk sorti en 2020, développé avec le studio Theta Division. Son style se distingue par des ambiances néon animées très détaillées, mêlant esthétique cyberpunk et influences japonaises.",
     works: [{ title: "VirtuaVerse", year: "2020" }],
     links: [
@@ -339,6 +361,7 @@ const ARTISTS = [
   {
     name: 'Thomas Feichtmeir "Cyangmou"',
     category: "pixel",
+    note: "La référence technique du domaine.",
     bio: "Thomas Feichtmeir, alias Cyangmou, est un artiste de jeu vidéo autrichien spécialisé en pixel art, avec plus d'une décennie d'expérience et une contribution à plus de 25 jeux publiés (dont Vampire Survivors, Blasphemous, Dome Keeper, Symphony of War). Il est une référence technique reconnue de la communauté pixel art grâce à ses tutoriels approfondis et ses streams pédagogiques hebdomadaires sur Twitch.",
     works: [
       { title: "Vampire Survivors (contribution artistique)" },
@@ -382,6 +405,7 @@ const ARTISTS = [
   {
     name: "Clément Morin",
     category: "3d",
+    note: "Illustrations 3D et boucles animées — la Normandie au pays de Ghibli.",
     bio: "Artiste 3D originaire de Normandie et diplômé des Gobelins à Paris, Clément Morin explore avec nostalgie l'imaginaire de l'enfance à travers des figures solitaires plongeant dans des mondes colorés et oniriques, influencé notamment par l'univers du Studio Ghibli. Il a réalisé la série documentaire « Insignificant » (co-produite avec le CNRS, diffusée sur Arte) et collabore avec des marques comme Chanel, Ubisoft et Guerlain.",
     works: [
       { title: "Insignificant (série documentaire, CNRS/Arte)", year: "2015-2019" },
@@ -397,6 +421,7 @@ const ARTISTS = [
   {
     name: "Wit Olszewski",
     category: "3d",
+    note: "Looping 3D mini worlds — des mondes miniatures en boucle infinie.",
     bio: "Wit Olszewski est un artiste 3D généraliste et motion designer, spécialisé dans la création de dioramas numériques en boucle infinie (« looping 3D mini-worlds ») réalisés avec Cinema4D et Redshift. Inspiré par les jeux vidéo, les parcs à miniatures et les boules à neige de son enfance, il conçoit des scènes très détaillées observées depuis une perspective quasi divine ; son diorama inspiré du jeu Among Us a été vu par plus de 14 millions de personnes sur TikTok.",
     works: [
       { title: "Among Us' Main Lounge (diorama 3D)", year: "2020" },
@@ -414,6 +439,7 @@ const ARTISTS = [
   {
     name: "Sylvain Sarrailh / Tohad",
     category: "game",
+    note: "Environnements peints lumineux — un des meilleurs en activité.",
     bio: "Sylvain Sarrailh, connu sous le pseudonyme Tohad, est un illustrateur, directeur artistique et concept artist français basé à Toulouse. Il a collaboré avec des studios comme Guerrilla Games, Rocksteady, Ubisoft ou Illumination, et dirige aujourd'hui le studio Umeshu Lovers, reconnu pour ses environnements peints à l'atmosphère lumineuse et fantastique.",
     works: [{ title: "Forest of Liars" }, { title: "Ener's Wrath" }],
     links: [
@@ -425,6 +451,7 @@ const ARTISTS = [
   {
     name: "Kazuo Oga",
     category: "game",
+    note: "Le maître des décors Ghibli — gouache traditionnelle, nature japonaise.",
     bio: "Kazuo Oga est un directeur artistique et peintre de décors japonais, né en 1952 dans la préfecture d'Akita. Entré au Studio Ghibli en 1988, il devient directeur des décors sur Mon voisin Totoro, s'inspirant des paysages de son enfance à Akita, puis poursuit sur Princesse Mononoke, Pompoko ou Porco Rosso, imposant un style de gouache traditionnelle célébrant la nature japonaise.",
     works: [
       { title: "Mon voisin Totoro", year: "1988" },
@@ -439,6 +466,7 @@ const ARTISTS = [
   {
     name: "Joanne Tran",
     category: "game",
+    note: "Les décors peints à la main de Hades, chez Supergiant Games.",
     bio: "Joanne Tran est une artiste d'environnement 2D qui a rejoint Supergiant Games en 2018 après des passages chez EA Visceral et Sledgehammer Games. Elle a contribué aux décors peints à la main du jeu Hades, travaillant aux côtés de la directrice artistique Jen Zee, avant de participer à d'autres projets du studio.",
     works: [{ title: "Hades", year: "2020" }],
     links: [
@@ -450,7 +478,8 @@ const ARTISTS = [
   {
     name: "Liam Wong",
     category: "game",
-    bio: "Liam Wong est un photographe et game designer écossais, ancien directeur artistique chez Ubisoft Montréal, où il fut nommé parmi les Forbes 30 Under 30. Il s'est fait connaître avec sa série photo nocturne de Tokyo TO:KY:OO, devenue le livre le plus financé par crowdfunding au Royaume-Uni, suivie du livre After Dark élargissant son travail à d'autres villes.",
+    note: "Ex-Ubisoft — TO:KY:OO, Tokyo néon la nuit.",
+    bio: "Liam Wong est un photographe et game designer écossais, ancien directeur du design graphique chez Ubisoft Montréal, où il fut nommé parmi les Forbes 30 Under 30. Il s'est fait connaître avec sa série photo nocturne de Tokyo TO:KY:OO, devenue le livre le plus financé par crowdfunding au Royaume-Uni, suivie du livre After Dark élargissant son travail à d'autres villes.",
     works: [
       { title: "TO:KY:OO", year: "2018" },
       { title: "After Dark", year: "2022" },
@@ -463,6 +492,7 @@ const ARTISTS = [
   {
     name: "Little Thunder",
     category: "game",
+    note: "Hong Kong — entre manga, pin-up et culture cantonaise.",
     bio: "Little Thunder (Cheng Sum-ling, née en 1984) est une illustratrice et bédéiste hongkongaise autodidacte, influencée par son père peintre à l'encre. Son style mêle manga japonais, pin-up américaine et culture hongkongaise, à travers des bandes dessinées comme Kylooe et des livres d'illustration mettant en scène des figures féminines.",
     works: [
       { title: "Kylooe" },
@@ -478,6 +508,7 @@ const ARTISTS = [
   {
     name: "Stefan Große Halbuer",
     category: "game",
+    note: "Isometric landscapes — le quotidien en mondes miniatures.",
     bio: "Stefan Große Halbuer est un designer et illustrateur digital allemand basé à Münster, spécialisé dans les compositions isométriques transformant des scènes du quotidien en petits mondes miniatures. Il a notamment illustré des couvertures pour le magazine MINT et publié un guide dédié à l'art isométrique.",
     works: [
       { title: "The record shop of the future (MINT Magazine No. 43)" },

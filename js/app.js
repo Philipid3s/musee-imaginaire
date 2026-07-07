@@ -17,12 +17,26 @@
   const modalClose = document.getElementById("modalClose");
   const modalCategory = document.getElementById("modalCategory");
   const modalName = document.getElementById("modalName");
+  const modalNote = document.getElementById("modalNote");
   const modalBio = document.getElementById("modalBio");
   const modalWorks = document.getElementById("modalWorks");
   const modalLinks = document.getElementById("modalLinks");
 
   let activeCategory = "all";
   let searchTerm = "";
+
+  function slugify(name) {
+    return name
+      .toLowerCase()
+      .replace(/ł/g, "l")
+      .replace(/ß/g, "ss")
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  ARTISTS.forEach((a) => (a.slug = slugify(a.name)));
 
   function categoryLabel(key) {
     const cat = CATEGORIES.find((c) => c.key === key);
@@ -67,49 +81,104 @@
     return inCategory && inSearch;
   }
 
+  function buildCard(artist) {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.style.setProperty("--cat-color", colorVar(artist.category));
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `Voir la fiche de ${artist.name}`);
+
+    const catEl = document.createElement("span");
+    catEl.className = "card-category";
+    catEl.textContent = categoryLabel(artist.category);
+
+    const nameEl = document.createElement("h2");
+    nameEl.textContent = artist.name;
+
+    card.appendChild(catEl);
+    card.appendChild(nameEl);
+
+    if (artist.note) {
+      const noteEl = document.createElement("p");
+      noteEl.className = "card-note";
+      noteEl.textContent = artist.note;
+      card.appendChild(noteEl);
+    }
+
+    const bioEl = document.createElement("p");
+    bioEl.className = "card-bio";
+    bioEl.textContent = artist.bio;
+    card.appendChild(bioEl);
+
+    card.addEventListener("click", () => openModal(artist));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(artist);
+      }
+    });
+
+    return card;
+  }
+
   function renderGallery() {
     gallery.innerHTML = "";
-    const visible = ARTISTS.filter(matchesFilters);
-    emptyState.hidden = visible.length !== 0;
+    let totalVisible = 0;
 
-    visible.forEach((artist) => {
-      const card = document.createElement("article");
-      card.className = "card";
-      card.style.setProperty("--cat-color", colorVar(artist.category));
-      card.tabIndex = 0;
-      card.setAttribute("role", "button");
-      card.setAttribute("aria-label", `Voir la fiche de ${artist.name}`);
+    CATEGORIES.forEach((cat) => {
+      const artists = ARTISTS.filter(
+        (a) => a.category === cat.key && matchesFilters(a)
+      );
+      if (!artists.length) return;
+      totalVisible += artists.length;
 
-      const catEl = document.createElement("span");
-      catEl.className = "card-category";
-      catEl.textContent = categoryLabel(artist.category);
+      const room = document.createElement("section");
+      room.className = "room";
+      room.style.setProperty("--room-color", colorVar(cat.key));
 
-      const nameEl = document.createElement("h2");
-      nameEl.textContent = artist.name;
+      const header = document.createElement("div");
+      header.className = "room-header";
 
-      const bioEl = document.createElement("p");
-      bioEl.textContent = artist.bio;
+      const title = document.createElement("div");
+      title.className = "room-title";
 
-      card.appendChild(catEl);
-      card.appendChild(nameEl);
-      card.appendChild(bioEl);
+      const numeral = document.createElement("span");
+      numeral.className = "room-numeral";
+      numeral.textContent = `Salle ${cat.numeral}`;
 
-      card.addEventListener("click", () => openModal(artist));
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          openModal(artist);
-        }
-      });
+      const name = document.createElement("h2");
+      name.className = "room-name";
+      name.textContent = cat.label;
 
-      gallery.appendChild(card);
+      title.appendChild(numeral);
+      title.appendChild(name);
+      header.appendChild(title);
+      room.appendChild(header);
+
+      const grid = document.createElement("div");
+      grid.className = "gallery-grid";
+      artists.forEach((a) => grid.appendChild(buildCard(a)));
+      room.appendChild(grid);
+
+      gallery.appendChild(room);
     });
+
+    emptyState.hidden = totalVisible !== 0;
   }
 
   function openModal(artist) {
     modalOverlay.style.setProperty("--cat-color", colorVar(artist.category));
     modalCategory.textContent = categoryLabel(artist.category);
     modalName.textContent = artist.name;
+
+    if (artist.note) {
+      modalNote.textContent = artist.note;
+      modalNote.hidden = false;
+    } else {
+      modalNote.hidden = true;
+    }
+
     modalBio.textContent = artist.bio;
 
     modalWorks.innerHTML = "";
@@ -147,12 +216,14 @@
 
     modalOverlay.hidden = false;
     document.body.style.overflow = "hidden";
+    history.replaceState(null, "", "#" + artist.slug);
     modalClose.focus();
   }
 
   function closeModal() {
     modalOverlay.hidden = true;
     document.body.style.overflow = "";
+    history.replaceState(null, "", location.pathname + location.search);
   }
 
   modalClose.addEventListener("click", closeModal);
@@ -171,4 +242,15 @@
   renderFilters();
   renderGallery();
   artistCount.textContent = ARTISTS.length;
+
+  // Lien profond : ouvre la fiche si l'URL contient #slug-de-l-artiste
+  function openFromHash() {
+    const hash = decodeURIComponent(location.hash.slice(1));
+    if (!hash) return;
+    const artist = ARTISTS.find((a) => a.slug === hash);
+    if (artist) openModal(artist);
+  }
+
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
 })();
